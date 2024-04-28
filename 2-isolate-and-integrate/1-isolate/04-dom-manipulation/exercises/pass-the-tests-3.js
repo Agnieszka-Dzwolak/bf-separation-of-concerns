@@ -13,6 +13,8 @@ console.log(divEl.nodeName + ' (before)', divEl.cloneNode(true));
 
 // --- write some code ---
 //  you want to create a 2x2 table with a, b, c, d in the squares
+divEl.children[0].children[0].children[0].innerHTML = `<td>a</td><td>b</td>`;
+divEl.children[0].children[0].children[1].innerHTML = `<td>c</td><td>d</td>`;
 
 // --- --- --- --- --- ---
 

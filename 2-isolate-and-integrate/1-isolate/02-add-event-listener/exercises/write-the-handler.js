@@ -7,6 +7,14 @@ buttonEl.innerHTML = 'are you honest?';
 console.log(buttonEl.nodeName, buttonEl.cloneNode(true));
 
 const truthTestHandler = () => {
+    const areYouHonest = confirm('Are you honest?');
+
+    if (areYouHonest) {
+        alert('Well done!');
+    } else {
+        alert('You should be more honest!');
+    }
+
     // ask a user to confirm if they are honest
     // let them know what you think of their answer
 };
