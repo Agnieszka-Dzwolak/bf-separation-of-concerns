@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My-authentication</title>
+    </head>
+    <body>
+        <button id="log-in-btn">log in</button>
+        <button id="log-out-btn">log out</button>
+
+        <script>
+            const state = {
+                isLogged: false,
+                currentUser: undefined,
+            };
+
+            const logInBtn = document.getElementById('log-in-btn');
+            const logOutBtn = document.getElementById('log-out-btn');
+
+            let userName = '';
+            const logInHandler = () => {
+                if (state.isLogged) {
+                    alert(`${userName} is already logged in`);
+                    return;
+                }
+                userName = prompt('enter your user name');
+                console.log(userName);
+                if (userName === null) {
+                    return;
+                }
+
+                let password = prompt('enter your password');
+                console.log(password);
+                if (password === null) {
+                    return;
+                }
+
+                let password2 = prompt('please confirm your password');
+                console.log(password2);
+                if (password2 === null) {
+                    return;
+                }
+
+                if (password !== password2) {
+                    alert('password do not match');
+                }
+
+                if (password === password2) {
+                    alert(`welcome ${userName}`);
+
+                    state.isLogged = true;
+                    state.currentUser = userName;
+                }
+            };
+
+            const logOutHandler = () => {
+                if (!state.isLogged) {
+                    alert('you are not logged in');
+                } else {
+                    let answer = confirm(
+                        `${userName}, are you sure you want to log out?`,
+                    );
+
+                    if (answer) {
+                        alert(`goodbye ${userName}`);
+                        console.log('not logged');
+                        state.isLogged = false;
+                        state.currentUser = null;
+                    } else {
+                        console.log('logged');
+                    }
+                }
+            };
+
+            logInBtn.addEventListener('click', logInHandler);
+            logOutBtn.addEventListener('click', logOutHandler);
+        </script>
+    </body>
+</html>

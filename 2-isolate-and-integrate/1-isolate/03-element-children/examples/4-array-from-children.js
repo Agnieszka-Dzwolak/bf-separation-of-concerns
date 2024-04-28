@@ -10,7 +10,7 @@ divEl.innerHTML += '<h3>...</h3>';
 console.log(divEl.nodeName, divEl.cloneNode(true));
 console.log('.childElementCount', divEl.childElementCount);
 
-// update each child using a for loop
+// update each child using a forEach
 const childrenArray = Array.from(divEl.children);
 childrenArray.forEach((child) => {
     // children are updated by reference
